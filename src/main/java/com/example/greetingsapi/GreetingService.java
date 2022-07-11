@@ -35,4 +35,11 @@ public class GreetingService {
 	    public List<Greeting> findGreetings() {
 	        return repository.findAll();
 	    }
+	    public Greeting editGreeting(Greeting greeting, Integer id) {
+	        Greeting existingGreet = repository.findById(id).orElse(null);
+	        if (existingGreet != null) {
+	            existingGreet.setMessage(greeting.getMessage());
+	            return repository.save(existingGreet);
+	        }else return null;
+	    }
 }
