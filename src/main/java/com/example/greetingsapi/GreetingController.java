@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -52,6 +53,11 @@ public class GreetingController {
     @PutMapping("/editGreeting/{id}")
     public Greeting editGreeting(@RequestBody Greeting greeting, @PathVariable Integer id){
         return service.editGreeting(greeting, id);
+    }
+    @DeleteMapping("/deleteGreeting/{id}")
+    public String deleteGreeting(@PathVariable Integer id){
+        service.deleteGreeting(id);
+        return "Data Deleted";
     }
 }
 	
