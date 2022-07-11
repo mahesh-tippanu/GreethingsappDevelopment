@@ -1,4 +1,6 @@
 package com.example.demo.service.GreetingService.java;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,5 +31,8 @@ public class GreetingService {
 	     }	
 	    public Greeting findGreetingById(Integer id) {
 	        return repository.findById(id).orElse(null);
+	    }
+	    public List<Greeting> findGreetings() {
+	        return repository.findAll();
 	    }
 }
